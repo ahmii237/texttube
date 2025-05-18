@@ -5,7 +5,6 @@ import Tips from "@/components/Tips";
 import AutoScrollFeedback from "@/components/AutoScrollFeedback";
 import Texttubeusers from "@/components/Texttubeusers";
 import Faqs from "@/components/Faqs";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const Home: React.FC = () => {
   return (
@@ -42,8 +41,6 @@ const Home: React.FC = () => {
         </section>
       </section>
 
-      {/* Add Speed Insights */}
-      <SpeedInsights />
     </div>
   );
 };
