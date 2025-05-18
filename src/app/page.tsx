@@ -5,7 +5,7 @@ import Tips from "@/components/Tips";
 import AutoScrollFeedback from "@/components/AutoScrollFeedback";
 import Texttubeusers from "@/components/Texttubeusers";
 import Faqs from "@/components/Faqs";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const Home: React.FC = () => {
   return (
@@ -19,17 +19,14 @@ const Home: React.FC = () => {
 
         {/* Tips and TextTube Users in one row */}
         <div id="features" className="flex flex-col md:flex-col gap-8 mb-12">
-          
           <div className="">
             <Tips />
           </div>
 
-          
           <div className="">
             <Texttubeusers />
           </div>
         </div>
-
       </section>
 
       <section
@@ -40,10 +37,13 @@ const Home: React.FC = () => {
           What People Are Saying
         </h2>
         <AutoScrollFeedback />
-        <section id="faqs" >
+        <section id="faqs">
           <Faqs />
         </section>
       </section>
+
+      {/* Add Speed Insights */}
+      <SpeedInsights />
     </div>
   );
 };
