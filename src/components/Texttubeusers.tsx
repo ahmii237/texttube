@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import texttubeusers from "../data/texttubeusers.json";
 import { GraduationCap, Briefcase, PenTool, FileText } from "lucide-react";

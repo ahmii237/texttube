@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import faqsData from "../data/faqs.json"; // Importing data from JSON file
