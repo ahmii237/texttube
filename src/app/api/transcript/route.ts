@@ -137,7 +137,7 @@ async function fetchTranscriptMethod1(videoId: string) {
         const jsonStr = match[1].replace(/\\"/g, '"').replace(/\\\\/g, "\\");
         captionTracks = JSON.parse(jsonStr);
       } catch (e) {
-        console.error("Failed to parse caption tracks with pattern 2");
+        console.error("Failed to parse caption tracks with pattern 2",e);
       }
     }
   }
@@ -153,7 +153,7 @@ async function fetchTranscriptMethod1(videoId: string) {
         captionTracks = JSON.parse(match[1]);
       } catch (e) {
         // Handle parsing error
-        console.error("Failed to parse caption tracks with pattern 3");
+        console.error("Failed to parse caption tracks with pattern 3", e);
       }
     }
   }
