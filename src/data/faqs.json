@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "question": "What is TextTube?",
+    "answer": "TextTube is an AI-powered tool that summarizes and enables conversations with any YouTube video, helping users extract key insights quickly."
+  },
+  {
+    "id": 2,
+    "question": "How do I use TextTube?",
+    "answer": "Just paste a YouTube video link into TextTube. It will generate a summary and allow you to ask questions based on the video content."
+  },
+  {
+    "id": 3,
+    "question": "Is TextTube free to use?",
+    "answer": "A basic version of TextTube is free. Premium features may be available in future versions."
+  },
+  {
+    "id": 4,
+    "question": "Does TextTube work with all YouTube videos?",
+    "answer": "TextTube works with most public YouTube videos. However, some videos with restricted access or without transcripts may not be supported."
+  },
+  {
+    "id": 5,
+    "question": "Can I use TextTube for non-English videos?",
+    "answer": "Currently, TextTube primarily supports English. Support for other languages is planned in future updates."
+  },
+  {
+    "id": 6,
+    "question": "How accurate are the summaries?",
+    "answer": "TextTube uses advanced language models to provide high-quality summaries, though accuracy can vary based on video clarity and content."
+  },
+  {
+    "id": 7,
+    "question": "Can I chat with the video content?",
+    "answer": "Yes! TextTube allows you to ask questions about the video, and the AI responds using context from the video transcript."
+  },
+  {
+    "id": 8,
+    "question": "Is my data stored or shared?",
+    "answer": "TextTube does not store personal data or video transcripts permanently. Your privacy is a priority."
+  },
+  {
+    "id": 9,
+    "question": "Can educators use TextTube in the classroom?",
+    "answer": "Absolutely! Teachers and students can use TextTube to summarize educational videos and facilitate interactive learning."
+  },
+  {
+    "id": 10,
+    "question": "Will there be a mobile app?",
+    "answer": "A mobile app is in our roadmap. Stay tuned for updates on iOS and Android support."
+  }
+]

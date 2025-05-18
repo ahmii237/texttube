@@ -1,0 +1,17 @@
+[
+  {
+    "user": "Students & Learners",
+    "use_case": "Summarize long lectures or tutorials and ask follow-up questions about the video content.",
+    "benefit": "Saves time and improves understanding of complex educational topics."
+  },
+  {
+    "user": "Content Creators & Researchers",
+    "use_case": "Quickly analyze competitor videos, extract key insights, and brainstorm content ideas.",
+    "benefit": "Speeds up research and helps generate creative, data-driven content."
+  },
+  {
+    "user": "Professionals & Executives",
+    "use_case": "Get concise takeaways from interviews, tech talks, and conference sessions.",
+    "benefit": "Stay informed without watching hours of video."
+  }
+]

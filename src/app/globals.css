@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+  --foreground: #1f1f1f;
+
+  --grid-color: rgba(0, 0, 0, 0.03);
+  --grid-size: 30px;
+  --grid-width: 1px;
+}
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: linear-gradient(135deg, #1e1e2f, #2a2e45);
+    --foreground: #e0e0e0;
+    --grid-color: rgba(255, 255, 255, 0.02);
+  }
+}
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  background-size: 100% 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Grid overlay: subtle and minimal */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(to right, var(--grid-color) var(--grid-width), transparent var(--grid-width)),
+    linear-gradient(to bottom, var(--grid-color) var(--grid-width), transparent var(--grid-width));
+  background-size: var(--grid-size) var(--grid-size);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Sleek and minimal accent dots */
+body::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(circle at 30% 20%, rgba(0, 0, 0, 0.02) 2px, transparent 2px),
+                    radial-gradient(circle at 70% 65%, rgba(0, 0, 0, 0.02) 2px, transparent 2px);
+  background-size: 100px 100px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Content layer stays above */
+.animate-scroll-up-slow {
+  animation: scroll-up-slow 45s linear infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes scroll-up-slow {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-50%); }
+}

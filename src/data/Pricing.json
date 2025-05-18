@@ -1,0 +1,104 @@
+[
+  {
+    "id": "starter-monthly",
+    "title": "Starter",
+    "price": 2.49,
+    "originalPrice": 4.99,
+    "duration": "month",
+    "type": "monthly",
+    "description": "Great for new users to explore all features with limited usage.",
+    "buttonText": "Get Started",
+    "features": [
+      "10 videos per day",
+      "10 messages per video",
+      "Process videos up to 10 minutes",
+      "Community support only",
+      "Limited feature access"
+    ]
+  },
+  {
+    "id": "essential-monthly",
+    "title": "Essential",
+    "price": 5.49,
+    "originalPrice": 6.99,
+    "duration": "month",
+    "type": "monthly",
+    "description": "Perfect for moderate usage, offering substantial daily access to video chats.",
+    "buttonText": "Subscribe",
+    "features": [
+      "30 videos per day",
+      "30 messages per video",
+      "Process videos without transcripts (up to 30 minutes each)",
+      "Priority email support",
+      "Priority access to new features"
+    ]
+  },
+  {
+    "id": "pro-monthly",
+    "title": "Pro",
+    "price": 9.99,
+    "originalPrice": 14.99,
+    "duration": "month",
+    "type": "monthly",
+    "description": "Ideal for power users who need higher volume and faster priority.",
+    "buttonText": "Go Pro",
+    "features": [
+      "100 videos per day",
+      "Unlimited messages per video",
+      "Process videos up to 60 minutes",
+      "24/7 priority support",
+      "Early access to AI upgrades"
+    ]
+  },
+  {
+    "id": "starter-annual",
+    "title": "Starter",
+    "price": 19.9,
+    "originalPrice": 29.99,
+    "duration": "year",
+    "type": "annually",
+    "description": "Great for new users to explore all features with limited usage.",
+    "buttonText": "Get Started",
+    "features": [
+      "10 videos per day",
+      "10 messages per video",
+      "Process videos up to 10 minutes",
+      "Community support only",
+      "Limited feature access"
+    ]
+  },
+  {
+    "id": "essential-annual",
+    "title": "Essential",
+    "price": 49.9,
+    "originalPrice": 59.88,
+    "duration": "year",
+    "type": "annually",
+    "description": "Perfect for moderate usage, offering substantial daily access to video chats.",
+    "buttonText": "Subscribe",
+    "features": [
+      "30 videos per day",
+      "30 messages per video",
+      "Process videos without transcripts (up to 30 minutes each)",
+      "Priority email support",
+      "Priority access to new features"
+    ]
+  },
+  {
+    "id": "pro-annual",
+    "title": "Pro",
+    "price": 99.9,
+    "originalPrice": 129.99,
+    "duration": "year",
+    "type": "annually",
+    "description": "Ideal for power users who need higher volume and faster priority.",
+    "buttonText": "Go Pro",
+    "features": [
+      "100 videos per day",
+      "Unlimited messages per video",
+      "Process videos up to 60 minutes",
+      "24/7 priority support",
+      "Early access to AI upgrades"
+    ]
+  }
+]
