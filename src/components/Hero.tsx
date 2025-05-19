@@ -24,6 +24,7 @@ const Header: React.FC = () => {
       });
 
       const transcriptData = await transcriptRes.json();
+      console.log("Transcript Data:", transcriptData);
 
 function extractSlug(url: string): string {
   const idMatch = url.match(/[?&]v=([^&]+)/) || url.match(/\/embed\/([^/?]+)/);
@@ -48,7 +49,16 @@ function extractSlug(url: string): string {
         return;
       }
 
-      const transcriptText = transcriptData.transcript
+      const lines = transcriptData.transcript.content;
+
+
+      if (!Array.isArray(lines)) {
+        setIsLoading(false);
+        setErrorMessage("Unexpected transcript format received.");
+        return;
+      }
+
+      const transcriptText = lines
         .map((line: { text: string }) => line.text)
         .join(" ");
 
