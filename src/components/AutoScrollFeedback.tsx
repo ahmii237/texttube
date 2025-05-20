@@ -1,18 +1,28 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import feedback from "../data/feedback.json";
 import FeedbackCard from "./FeedbackCard";
 
 const AutoScrollFeedback: React.FC = () => {
+  const [cardsPerRow, setCardsPerRow] = useState(3);
+
+  useEffect(() => {
+    // Update cards per row based on screen width
+    const handleResize = () => {
+      setCardsPerRow(window.innerWidth < 640 ? 2 : 3); // 640px is Tailwind's 'sm'
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="relative w-full max-w-6xl h-[400px] overflow-hidden my-10">
       <div className="animate-scroll-up-slow">
-        {/* Group feedback items into rows of 3 */}
+        {/* Group feedback items into rows of cardsPerRow */}
         {[...feedback, ...feedback]
-          .reduce((rows: Array<Array<typeof feedback[0]>>, item, index) => {
-            // Create new row for every 3 items
-            if (index % 3 === 0) rows.push([]);
-            // Add current item to the last row
+          .reduce((rows: Array<Array<(typeof feedback)[0]>>, item, index) => {
+            if (index % cardsPerRow === 0) rows.push([]);
             rows[rows.length - 1].push(item);
             return rows;
           }, [])
@@ -27,8 +37,8 @@ const AutoScrollFeedback: React.FC = () => {
                   />
                 </div>
               ))}
-              {/* If row has less than 3 items, add empty placeholders to maintain layout */}
-              {Array.from({ length: 3 - row.length }).map((_, i) => (
+              {/* If row has less than cardsPerRow items, add empty placeholders */}
+              {Array.from({ length: cardsPerRow - row.length }).map((_, i) => (
                 <div key={`empty-${i}`} className="flex-1" />
               ))}
             </div>

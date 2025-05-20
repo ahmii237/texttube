@@ -26,11 +26,11 @@ const Header: React.FC = () => {
       const transcriptData = await transcriptRes.json();
       console.log("Transcript Data:", transcriptData);
 
-function extractSlug(url: string): string {
-  const idMatch = url.match(/[?&]v=([^&]+)/) || url.match(/\/embed\/([^/?]+)/);
-  return idMatch ? idMatch[1] : "video";
-}
-
+      function extractSlug(url: string): string {
+        const idMatch =
+          url.match(/[?&]v=([^&]+)/) || url.match(/\/embed\/([^/?]+)/);
+        return idMatch ? idMatch[1] : "video";
+      }
 
       // Check transcript availability
       if (transcriptData.error === "TRANSCRIPT_DISABLED") {
@@ -50,7 +50,6 @@ function extractSlug(url: string): string {
       }
 
       const lines = transcriptData.transcript.content;
-
 
       if (!Array.isArray(lines)) {
         setIsLoading(false);
@@ -77,8 +76,6 @@ function extractSlug(url: string): string {
         return alert("Could not generate summary.");
       }
 
-      
-
       const slug = extractSlug(url);
 
       router.push(
@@ -87,7 +84,6 @@ function extractSlug(url: string): string {
         )}&summary=${encodeURIComponent(summaryData.summary)}`,
         { scroll: false }
       );
-
     } catch (err) {
       console.error("Unexpected error:", err);
       setIsLoading(false);
@@ -113,17 +109,20 @@ function extractSlug(url: string): string {
         </p>
       </div>
 
-      <div id="linker" className="flex items-center gap-2">
+      <div
+        id="linker"
+        className="flex flex-col sm:flex-row items-center gap-2 w-full max-w-md"
+      >
         <input
           type="text"
           placeholder="Enter YouTube Video Link"
-          className="border-2 rounded-xl p-3 w-96"
+          className="border-2 rounded-xl p-3 w-full"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           disabled={isLoading}
         />
         <button
-          className={`px-4 py-3 border rounded-xl bg-red-600 hover:bg-red-400 hover:cursor-pointer text-white ${
+          className={`px-4 py-3 border rounded-xl bg-red-600 hover:bg-red-400 hover:cursor-pointer text-white w-full sm:w-auto mt-2 sm:mt-0 ${
             isLoading ? "opacity-50 cursor-not-allowed" : ""
           }`}
           onClick={handleClick}

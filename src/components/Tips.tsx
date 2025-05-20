@@ -60,7 +60,7 @@ const tipData = [
 
 export default function Tips() {
   return (
-    <div className="w-full mx-auto px-4 py-10">
+    <div className="w-full mx-auto px-4 py-8 max-w-6xl">
       <Swiper
         modules={[Pagination, Scrollbar, A11y, Autoplay, Keyboard, Mousewheel]}
         pagination={{ clickable: true }}
@@ -68,7 +68,7 @@ export default function Tips() {
         keyboard={{ enabled: true }}
         mousewheel={{ forceToAxis: true }}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
-        spaceBetween={30}
+        spaceBetween={20}
         slidesPerView={1}
         loop
         centeredSlides
@@ -76,19 +76,19 @@ export default function Tips() {
       >
         {tipData.map((tip, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl w-full h-[500px] mx-auto flex flex-col md:flex-row">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl w-full h-auto mx-auto flex flex-col md:flex-row">
               {/* Left side - Content */}
-              <div className="p-10 md:w-3/5 bg-gradient-to-br from-purple-100 to-white flex flex-col justify-center">
-                <h2 className="text-4xl font-extrabold text-purple-800 mb-8 tracking-tight">
+              <div className="p-6 sm:p-8 md:p-10 w-full md:w-3/5 bg-gradient-to-br from-purple-100 to-white flex flex-col justify-center">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-purple-800 mb-4 sm:mb-6 md:mb-8 tracking-tight">
                   {tip.heading}
                 </h2>
-                <ul className="text-gray-700 space-y-5 list-none">
+                <ul className="text-gray-700 space-y-3 sm:space-y-4 md:space-y-5 list-none">
                   {tip.tips.map((t, i) => (
                     <li key={i} className="flex items-start">
-                      <span className="inline-flex mr-4 mt-1 text-purple-600 text-2xl">
+                      <span className="inline-flex mr-3 md:mr-4 mt-1 text-purple-600 text-xl md:text-2xl">
                         •
                       </span>
-                      <span className="text-xl font-medium leading-relaxed">
+                      <span className="text-base sm:text-lg md:text-xl font-medium leading-relaxed">
                         {t}
                       </span>
                     </li>
@@ -96,8 +96,8 @@ export default function Tips() {
                 </ul>
               </div>
 
-              {/* Right side - Image */}
-              <div className="md:w-2/5 relative">
+              {/* Right side - Image (hidden on mobile) */}
+              <div className="hidden md:block md:w-2/5 relative">
                 <div className="h-full">
                   <Image
                     src={tip.image}
@@ -115,5 +115,4 @@ export default function Tips() {
         ))}
       </Swiper>
     </div>
-  );
-}
+  );}
