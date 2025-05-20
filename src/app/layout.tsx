@@ -30,21 +30,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics - Load the gtag.js script */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-9GE1FVQ2SS"
-          strategy="afterInteractive"
-        />
-        {/* Initialize GA config */}
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', ${process.env.Measurement_ID},{});
-          `}
-        </Script>
+      
+<Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-9GE1FVQ2SS"
+  strategy="afterInteractive"
+/>
+<Script id="gtag-init" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9GE1FVQ2SS');
+  `}
+</Script>
         <meta
           name="google-site-verification"
           content="VNNPnKBIk5AEDRp1imx_OtP_SABAXSTQKTGMemzdT0E"
