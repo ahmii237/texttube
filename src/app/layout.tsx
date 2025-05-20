@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 
 const sourceSans = Source_Sans_3({
   variable: "--font-sans",
@@ -28,10 +29,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics - Load the gtag.js script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9GE1FVQ2SS"
+          strategy="afterInteractive"
+        />
+        {/* Initialize GA config */}
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', ${process.env.Measurement_ID},{});
+          `}
+        </Script>
+      </head>
       <body className={`${sourceSans.variable} font-sans antialiased`}>
         <Navbar />
         {children}
         <SpeedInsights />
+
         <div className="">
           <Footer />
         </div>
