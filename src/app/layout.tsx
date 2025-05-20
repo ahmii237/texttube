@@ -45,6 +45,10 @@ export default function RootLayout({
             gtag('config', ${process.env.Measurement_ID},{});
           `}
         </Script>
+        <meta
+          name="google-site-verification"
+          content="VNNPnKBIk5AEDRp1imx_OtP_SABAXSTQKTGMemzdT0E"
+        />
       </head>
       <body className={`${sourceSans.variable} font-sans antialiased`}>
         <Navbar />
