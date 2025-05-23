@@ -5,7 +5,7 @@ import { Facebook, Linkedin, Instagram } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-full px-6 py-4 border-t border-gray-300 text-gray-700">
+    <footer className="w-full px-6 py-4 border-t border-gray-300 text-white">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Logo and Brand */}
         <div className="flex items-center space-x-2">
@@ -15,11 +15,11 @@ const Footer: React.FC = () => {
             width={40}
             height={40}
           />
-          <h1 className="text-lg font-semibold text-gray-800">TextTube</h1>
+          <h1 className="text-lg font-semibold text-white">TextTube</h1>
         </div>
 
         {/* Navigation Links */}
-        <ul className="flex flex-wrap justify-center gap-4 text-sm font-medium">
+        <ul className="flex flex-wrap justify-center text-white gap-4 text-sm font-medium">
           <li>
             <Link
               href="/install"
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
         </ul>
 
         {/* Social Icons */}
-        <div className="flex gap-4 text-gray-600">
+        <div className="flex gap-4 text-white">
           <a
             href="https://www.facebook.com/share/15V1ZdNne5/"
             target="_blank"
