@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 
-import Link from "next/link";
 export default function About() {
 
 
@@ -13,21 +12,21 @@ export default function About() {
       <section className="mb-16">
         <h1 className="text-4xl font-bold mb-6">About TexTube</h1>
         <div className="bg-white shadow-lg rounded-lg p-8">
-          <p className="text-lg mb-4">
+          <p className="text-lg  text-black mb-4">
             Welcome to TexTube, a revolutionary platform dedicated to creating,
             sharing, and experiencing text-based content in innovative ways.
             Founded with the vision of making written communication more
             engaging and interactive, TexTube bridges the gap between
             traditional text platforms and modern multimedia experiences.
           </p>
-          <p className="text-lg mb-4">
+          <p className="text-lg text-black mb-4">
             Our platform offers tools for creators to enhance their written
             content with dynamic elements, interactive features, and seamless
             sharing capabilities. Whether you are a blogger, content creator,
             educator, or business professional, TexTube provides you with the
             resources to transform ordinary text into extraordinary experiences.
           </p>
-          <p className="text-lg">
+          <p className="text-lg text-black">
             At TexTube, we believe in the power of words to connect, inspire,
             and transform. Join our growing community and discover new ways to
             bring your ideas to life through the art of text.
@@ -52,7 +51,7 @@ export default function About() {
             </div>
           </div>
           <div className="w-full md:w-2/3">
-            <h3 className="text-2xl font-semibold mb-3">Mudasar Ahmad</h3>
+            <h3 className="text-2xl font-semibold text-black mb-3">Mudasar Ahmad</h3>
             <p className="text-gray-600 mb-2">
               Software Engineering Student | Web Developer
             </p>
@@ -73,7 +72,7 @@ export default function About() {
                 mudasarofficial237@gmail.com
               </a>
             </div>
-            <p className="text-lg mb-4">
+            <p className="text-lg mb-4 text-black">
               I am a passionate Software Engineering student at Comsats
               University Islamabad (2022-Present) with expertise in various
               programming languages (C, C++, Java, HTML, CSS, JavaScript, SQL)
@@ -88,11 +87,7 @@ export default function About() {
               my knowledge and network while pursuing innovative solutions in
               software development.
             </p>
-            <Link href="/contactus">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-                Hire Me
-              </button>
-            </Link>
+
           </div>
         </div>
       </section>

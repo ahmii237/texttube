@@ -12,14 +12,24 @@ const sourceSans = Source_Sans_3({
   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-
 export const metadata: Metadata = {
   title: "TextTube — Summarize & Converse with Any YouTube Video Using AI",
   description:
     "Transform any YouTube video into a concise summary and engage in intelligent, AI-powered conversations for deeper understanding.",
   icons: {
-    icon: "/favicon.png", 
+    icon: "/favicon.png",
   },
+  keywords: [
+    "TextTube",
+    "YouTube",
+    "AI",
+    "summarization",
+    "conversational AI",
+    "video content",
+    "text-based content",
+    "Ai Summarizer",
+    "YouTube summarizer",
+  ],
 };
 
 export default function RootLayout({
@@ -30,19 +40,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      
-<Script
-  src="https://www.googletagmanager.com/gtag/js?id=G-9GE1FVQ2SS"
-  strategy="afterInteractive"
-/>
-<Script id="gtag-init" strategy="afterInteractive">
-  {`
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9GE1FVQ2SS"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
     window.dataLayer = window.dataLayer || [];
     function gtag(){window.dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-9GE1FVQ2SS');
   `}
-</Script>
+        </Script>
         <meta
           name="google-site-verification"
           content="VNNPnKBIk5AEDRp1imx_OtP_SABAXSTQKTGMemzdT0E"
