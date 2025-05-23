@@ -29,6 +29,8 @@ export const metadata: Metadata = {
     "text-based content",
     "Ai Summarizer",
     "YouTube summarizer",
+    "video summarization",
+    "AI chatbot",
   ],
 };
 

@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
 
     console.log("Transcript length:", transcript.length);
 
-    const prompt = `Summarize the following YouTube transcript in a concise way highlighting the main points and key information:\n\n${transcript}`;
+    const prompt = ` give concise Summary of  the following YouTube transcript in a concise way highlighting the main points and key information:\n\n${transcript}`;
 
     const res = await model.invoke(prompt);
 
