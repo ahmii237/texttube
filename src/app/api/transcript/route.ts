@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const apiUrl = `https://youtube-transcripts.p.rapidapi.com/youtube/transcript?videoId=${videoId}&chunkSize=500`;
+    const apiUrl = `https://${RAPID_API_HOST}/api/transcript-with-url?url=${encodeURIComponent(url)}&flat_text=true&lang=en`;
 
     const response = await fetch(apiUrl, {
       method: "GET",
@@ -65,7 +65,8 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: data.error }, { status: 400 });
     }
 
-    return NextResponse.json({ transcript: data });
+    // Return the data directly since it should already contain the transcript
+    return NextResponse.json(data);
   } catch (error) {
     console.error("Transcript route error:", error);
     return NextResponse.json(

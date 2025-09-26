@@ -15,92 +15,123 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="w-full px-6 py-5 h-20 flex items-center justify-between relative">
-      {/* Logo */}
-      <div className="flex items-center">
-        <Image
-          src="/images/texttube-logo.png"
-          alt="texttube-logo"
-          width={80}
-          height={80}
-        />
-        <h1 className="text-xl font-bold hover:cursor-pointer">
-          <Link href="/">TextTube</Link>
-        </h1>
-      </div>
+    <nav className="w-full bg-white/95 backdrop-blur-md shadow-lg border-b border-purple-100 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center group">
+          <div className="relative">
+            <Image
+              src="/images/texttube-logo.png"
+              alt="texttube-logo"
+              width={50}
+              height={50}
+              className="transition-transform duration-300 group-hover:scale-110"
+            />
+          </div>
+          <h1 className="ml-3 text-2xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+            TextTube
+          </h1>
+        </Link>
 
-      {/* Desktop Menu */}
-      <ul className="hidden md:flex gap-6 font-medium text-white">
-        <li className="px-3 py-2 rounded-xl hover:bg-gray-300 hover:cursor-pointer transition-colors">
-          <Link href="/install">Install</Link>
-        </li>
+        {/* Desktop Menu */}
+        <ul className="hidden lg:flex items-center gap-8 font-medium">
+          <li>
+            <Link
+              href="/install"
+              className="text-gray-700 hover:text-purple-600 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-purple-50"
+            >
+              Install
+            </Link>
+          </li>
+          <li>
+            <button
+              onClick={() => scrollToSection("features")}
+              className="text-gray-700 hover:text-purple-600 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-purple-50"
+            >
+              Features
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => scrollToSection("faqs")}
+              className="text-gray-700 hover:text-purple-600 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-purple-50"
+            >
+              FAQs
+            </button>
+          </li>
+          <li>
+            <Link
+              href="/about"
+              className="text-gray-700 hover:text-purple-600 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-purple-50"
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contactus"
+              className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-6 py-2 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              Contact Us
+            </Link>
+          </li>
+        </ul>
 
-        <li className="px-3 py-2 rounded-xl hover:bg-gray-300 hover:cursor-pointer transition-colors">
-          <a onClick={() => scrollToSection("features")}>Features</a>
-        </li>
-        <li className="px-3 py-2 rounded-xl hover:bg-gray-300 hover:cursor-pointer transition-colors">
-          <a onClick={() => scrollToSection("faqs")}>FAQs</a>
-        </li>
-        <li className="px-3 py-2 rounded-xl hover:bg-gray-300 hover:cursor-pointer transition-colors">
-          <Link href="/about">About</Link>
-        </li>
-        <li className="px-3 py-2 rounded-xl hover:bg-gray-300 hover:cursor-pointer transition-colors">
-          <Link href="/contactus">Contact Us</Link>
-        </li>
-      </ul>
-
-      {/* Hamburger Button */}
-      <div className="md:hidden flex items-center">
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-        >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {/* Hamburger Button */}
+        <div className="lg:hidden flex items-center">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-3 rounded-xl hover:bg-purple-50 transition-colors text-gray-700 hover:text-purple-600"
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-purple-600 border-t border-purple-700 shadow-lg py-6 flex flex-col items-center gap-6 md:hidden z-50">
-          <Link
-            href="/install"
-            onClick={() => setMenuOpen(false)}
-            className="text-lg font-medium text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors w-full text-center"
-          >
-            Install
-          </Link>
-          <button
-            onClick={() => {
-              scrollToSection("features");
-              setMenuOpen(false);
-            }}
-            className="text-lg font-medium text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors w-full text-center"
-          >
-            Features
-          </button>
-          <button
-            onClick={() => {
-              scrollToSection("faqs");
-              setMenuOpen(false);
-            }}
-            className="text-lg font-medium text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors w-full text-center"
-          >
-            FAQs
-          </button>
-          <Link
-            href="/about"
-            onClick={() => setMenuOpen(false)}
-            className="text-lg font-medium text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors w-full text-center"
-          >
-            About
-          </Link>
-          <Link
-            href="/contactus"
-            onClick={() => setMenuOpen(false)}
-            className="text-lg font-medium text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors w-full text-center"
-          >
-            Contact Us
-          </Link>
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white border-t border-purple-100 shadow-xl backdrop-blur-md">
+          <div className="px-6 py-6 space-y-4">
+            <Link
+              href="/install"
+              onClick={() => setMenuOpen(false)}
+              className="block text-gray-700 hover:text-purple-600 px-4 py-3 rounded-lg hover:bg-purple-50 transition-all duration-300 font-medium"
+            >
+              Install
+            </Link>
+            <button
+              onClick={() => {
+                scrollToSection("features");
+                setMenuOpen(false);
+              }}
+              className="block w-full text-left text-gray-700 hover:text-purple-600 px-4 py-3 rounded-lg hover:bg-purple-50 transition-all duration-300 font-medium"
+            >
+              Features
+            </button>
+            <button
+              onClick={() => {
+                scrollToSection("faqs");
+                setMenuOpen(false);
+              }}
+              className="block w-full text-left text-gray-700 hover:text-purple-600 px-4 py-3 rounded-lg hover:bg-purple-50 transition-all duration-300 font-medium"
+            >
+              FAQs
+            </button>
+            <Link
+              href="/about"
+              onClick={() => setMenuOpen(false)}
+              className="block text-gray-700 hover:text-purple-600 px-4 py-3 rounded-lg hover:bg-purple-50 transition-all duration-300 font-medium"
+            >
+              About
+            </Link>
+            <Link
+              href="/contactus"
+              onClick={() => setMenuOpen(false)}
+              className="block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-4 py-3 rounded-lg font-semibold text-center transition-all duration-300 shadow-lg"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
       )}
     </nav>

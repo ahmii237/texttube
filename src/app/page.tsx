@@ -16,7 +16,7 @@ const Home: React.FC = () => {
           Why Choose TextTube?
         </h2>
 
-        {/* Tips and TextTube Users in one row */}
+        
         <div id="features" className="flex flex-col md:flex-col gap-8 mb-12">
           <div className="">
             <Tips />

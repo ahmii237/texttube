@@ -1,62 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  --background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
-  --foreground: #1f1f1f;
+  --background: linear-gradient(
+    135deg,
+    #faf5ff 0%,
+    #f3e8ff 25%,
+    #e9d5ff 50%,
+    #f8fafc 75%,
+    #ffffff 100%
+  );
+  --foreground: #374151;
 
-  --grid-color: rgba(0, 0, 0, 0.03);
-  --grid-size: 30px;
+  --purple-50: #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-500: #8b5cf6;
+  --purple-600: #7c3aed;
+
+  --grid-color: rgba(139, 92, 246, 0.03);
+  --grid-size: 40px;
   --grid-width: 1px;
 }
 
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-}
+/* Theme variables are handled by CSS custom properties above */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: linear-gradient(135deg, #1e1e2f, #2a2e45);
-    --foreground: #e0e0e0;
-    --grid-color: rgba(255, 255, 255, 0.02);
+    --background: linear-gradient(
+      135deg,
+      #1e1b4b 0%,
+      #312e81 50%,
+      #1e40af 100%
+    );
+    --foreground: #f1f5f9;
+    --grid-color: rgba(139, 92, 246, 0.08);
   }
 }
-
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  background-size: 100% 100%;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  background-attachment: fixed;
+  min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Grid overlay: subtle and minimal */
+/* Subtle purple grid overlay */
 body::before {
   content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: 
-    linear-gradient(to right, var(--grid-color) var(--grid-width), transparent var(--grid-width)),
-    linear-gradient(to bottom, var(--grid-color) var(--grid-width), transparent var(--grid-width));
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(
+      to right,
+      var(--grid-color) var(--grid-width),
+      transparent var(--grid-width)
+    ),
+    linear-gradient(
+      to bottom,
+      var(--grid-color) var(--grid-width),
+      transparent var(--grid-width)
+    );
   background-size: var(--grid-size) var(--grid-size);
   pointer-events: none;
-  z-index: 0;
+  z-index: -2;
 }
 
-/* Sleek and minimal accent dots */
+/* Elegant floating purple dots */
 body::after {
   content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: radial-gradient(circle at 30% 20%, rgba(0, 0, 0, 0.02) 2px, transparent 2px),
-                    radial-gradient(circle at 70% 65%, rgba(0, 0, 0, 0.02) 2px, transparent 2px);
-  background-size: 100px 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(139, 92, 246, 0.04) 2px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(139, 92, 246, 0.03) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(139, 92, 246, 0.02) 3px,
+      transparent 3px
+    );
+  background-size:
+    120px 120px,
+    80px 80px,
+    200px 200px;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
+  animation: float-dots 20s ease-in-out infinite;
+}
+
+/* Floating animation for the dots */
+@keyframes float-dots {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+    opacity: 0.8;
+  }
 }
 
 /* Smooth scrolling */
@@ -64,7 +121,17 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Content layer stays above */
+/* Ensure all main content stays above the background */
+nav,
+main,
+footer,
+section,
+div[class*="max-w"] {
+  position: relative;
+  z-index: 1;
+}
+
+/* Feedback scroll animation */
 .animate-scroll-up-slow {
   animation: scroll-up-slow 45s linear infinite;
   position: relative;
@@ -72,6 +139,30 @@ html {
 }
 
 @keyframes scroll-up-slow {
-  0% { transform: translateY(0%); }
-  100% { transform: translateY(-50%); }
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* Enhance component backgrounds to work with the new global background */
+.component-bg {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+/* Gradient text utilities */
+.gradient-text {
+  background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Purple glow effect */
+.purple-glow {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
 }

@@ -25,55 +25,60 @@ const getUserIcon = (userType: string) => {
 
 export default function Texttubeusers() {
   return (
-    <div className="flex flex-col gap-4">
-      {texttubeusers.map((user: UserCardProps, index: number) => {
-        const isHighlighted = user.user === "Students & Learners";
+    <div
+      className="py-16 bg-gradient-to-br from-white to-purple-50"
+      id="features"
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            Who Uses TextTube?
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-purple-700 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Discover how different professionals leverage TextTube to enhance
+            their workflow
+          </p>
+        </div>
 
-        // Define card styles based on user type
-        let cardStyle = "bg-white border border-gray-200";
-        let iconBgStyle = "bg-gray-100";
-        let textColor = "text-gray-800";
-        let descColor = "text-gray-600";
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {texttubeusers.map((user: UserCardProps, index: number) => {
+            // Enhanced purple gradient scheme
+            const gradients = [
+              "from-purple-600 to-purple-700",
+              "from-purple-700 to-purple-800",
+              "from-purple-500 to-purple-600",
+            ];
 
-        if (isHighlighted) {
-          cardStyle = "bg-gradient-to-r from-blue-900 to-blue-700 text-white";
-          iconBgStyle = "bg-blue-800";
-          textColor = "text-white";
-          descColor = "text-blue-100";
-        } else if (user.user === "Content Creators & Researchers") {
-          cardStyle =
-            "bg-gradient-to-r from-purple-600 to-purple-400 text-white";
-          iconBgStyle = "bg-purple-700";
-          textColor = "text-white";
-          descColor = "text-purple-100";
-        } else if (user.user === "Professionals & Executives") {
-          cardStyle =
-            "bg-gradient-to-r from-emerald-600 to-emerald-500 text-white";
-          iconBgStyle = "bg-emerald-700";
-          textColor = "text-white";
-          descColor = "text-emerald-100";
-        }
+            const gradient = gradients[index % gradients.length];
 
-        return (
-          <div
-            key={index}
-            className={`flex flex-row items-center p-4 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl ${cardStyle}`}
-            style={{ width: "100%", height: "auto", minHeight: "130px" }}
-          >
-            <div className={`mr-4 p-3 rounded-full ${iconBgStyle}`}>
-              {getUserIcon(user.user)}
-            </div>
+            return (
+              <div
+                key={index}
+                className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100 group`}
+              >
+                <div
+                  className={`w-16 h-16 bg-gradient-to-br ${gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <div className="text-white">{getUserIcon(user.user)}</div>
+                </div>
 
-            <div className="flex-1">
-              <h2 className={`text-md font-bold mb-1 ${textColor}`}>
-                {user.user}
-              </h2>
-              <p className={`text-sm mb-1 ${descColor}`}>{user.use_case}</p>
-              <p className={`text-xs italic ${descColor}`}>{user.benefit}</p>
-            </div>
-          </div>
-        );
-      })}
+                <h3 className="text-xl font-bold text-gray-800 mb-4">
+                  {user.user}
+                </h3>
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  {user.use_case}
+                </p>
+                <div className="pt-4 border-t border-purple-100">
+                  <p className="text-sm text-purple-600 font-medium">
+                    💡 {user.benefit}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
